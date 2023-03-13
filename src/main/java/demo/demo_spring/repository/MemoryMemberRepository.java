@@ -52,7 +52,7 @@ public class MemoryMemberRepository implements MemberRepository {
     메모리에 저장된 회원 정보를 조회하고, 저장하는 기능을 구현하며,
     "MemberRepository" 인터페이스를 구현하여 다른 클래스에서 이 기능을 사용할 수 있도록 제공
      */
-    public void cleatStore() {
+    public void clearStore() {
         store.clear();
     }
 }

@@ -23,7 +23,7 @@ public class MemoryMemberRepositoryTest {
 
     @AfterEach  // 테스트 메서드가 실행된 후에 수행되는 메서드
     public void afterEach() {
-        repository.cleatStore(); // repository.clearStore() 메서드는 MemoryMemberRepository 클래스에 구현된 메서드로,
+        repository.clearStore(); // repository.clearStore() 메서드는 MemoryMemberRepository 클래스에 구현된 메서드로,
         // 해당 객체가 가지고 있는 메모리 저장소(store)를 비워주는 역할
     /*
     @AfterEach 어노테이션이 붙은 afterEach() 메서드는 각각의 테스트 메서드가 실행된 후에
