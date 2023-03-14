@@ -3,10 +3,11 @@ package demo.demo_spring.service;
 import demo.demo_spring.domain.Member;
 import demo.demo_spring.repository.MemberRepository;
 import demo.demo_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
 public class MemberService {
     // MemberRepository 인터페이스를 구현한 구현체를 주입받아 멤버 변수로 저장
     private final MemberRepository memberRepository;
