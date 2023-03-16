@@ -1,6 +1,7 @@
 package demo.demo_spring;
 
 import demo.demo_spring.repository.JdbcMemberRepository;
+import demo.demo_spring.repository.JdbcTemplateMemberRepository;
 import demo.demo_spring.repository.MemberRepository;
 import demo.demo_spring.repository.MemoryMemberRepository;
 import demo.demo_spring.service.MemberService;
@@ -33,10 +34,13 @@ public class SpringConfig {
     @Bean
     // MemoryMemberRepository 타입의 Bean을 생성하여 의존성 주입에 사용됩니다.
     public MemberRepository memberRepository() {
-//        MemoryMemberRepository 타입의 Bean을 생성하여 반환합니다.
+          //MemoryMemberRepository 타입의 Bean을 생성하여 반환합니다.
 //        return new MemoryMemberRepository();
+
         // dataSource 매개변수를 이용하여 JdbcMemberRepository 객체를 새로 생성하고 반환
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+
+        return new JdbcTemplateMemberRepository(dataSource);
     }
     /*
     MemberService와 MemberRepository Bean을 생성하여 스프링 컨테이너에서 관리하며,
