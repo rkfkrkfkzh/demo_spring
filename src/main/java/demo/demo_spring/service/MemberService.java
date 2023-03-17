@@ -3,14 +3,18 @@ package demo.demo_spring.service;
 import demo.demo_spring.domain.Member;
 import demo.demo_spring.repository.MemberRepository;
 import demo.demo_spring.repository.MemoryMemberRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+@Transactional
 public class MemberService {
     // MemberRepository 인터페이스를 구현한 구현체를 주입받아 멤버 변수로 저장
     private final MemberRepository memberRepository;
+
     // MemberService 클래스의 생성자입니다.
     // MemberRepository 인터페이스를 구현한 구현체를 매개변수로 받아서 memberRepository 멤버 변수에 할당합니다.
     public MemberService(MemberRepository memberRepository) {

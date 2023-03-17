@@ -1,8 +1,16 @@
 package demo.demo_spring.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Member { // 회원 정보를 저장하는 객체
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // 회원의 고유한 ID를 저장하는 필드
+
     private String name; // 회원의 이름을 저장하는 필드
 
     public Long getId() { // 회원의 ID 값을 반환하는 메서드
