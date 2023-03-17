@@ -13,11 +13,20 @@ import javax.sql.DataSource;
 // @Configuration 어노테이션은 해당 클래스가 스프링 설정 클래스임을 나타냅니다.
 public class SpringConfig {
 
-    private EntityManager em;
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    private final MemberRepository memberRepository;
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
+    @Bean
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
+    }
+
+//    private EntityManager em;
+//    @Autowired
+//    public SpringConfig(EntityManager em) {
+//        this.em = em;
+//    }
 
 //    private DataSource dataSource; //접근 제한자를 사용하여 DataSource 객체를 멤버 변수로 선언
 //
@@ -29,17 +38,18 @@ public class SpringConfig {
 
 
 
-    @Bean
+//    @Bean
     // memberService() 메서드는 MemberService 타입의 Bean을 생성하고,
     // 이 Bean의 의존성으로 memberRepository() 메서드를 사용합니다.
-    public MemberService memberService() {
-        return new MemberService(memberRepository());
-
-    }
-
-    @Bean
+//    public MemberService memberService() {
+//        return new MemberService(memberRepository());
+//
+//    }
+//
+//    @Bean
     // MemoryMemberRepository 타입의 Bean을 생성하여 의존성 주입에 사용됩니다.
-    public MemberRepository memberRepository() {
+//    public MemberRepository memberRepository() {
+
           //MemoryMemberRepository 타입의 Bean을 생성하여 반환합니다.
 //        return new MemoryMemberRepository();
 
@@ -48,8 +58,8 @@ public class SpringConfig {
 
 //        return new JdbcTemplateMemberRepository(dataSource);
 
-    return new JpaMemberRepository(em);
-    }
+//    return new JpaMemberRepository(em);
+//    }
     /*
     MemberService와 MemberRepository Bean을 생성하여 스프링 컨테이너에서 관리하며,
     MemberService Bean은 MemberRepository Bean에 의존하고 있습니다.
